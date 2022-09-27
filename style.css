@@ -90,3 +90,9 @@ figcaption {
 .contact-links {
     margin-top: 4rem;
 }
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #F5E9CF;
+}
