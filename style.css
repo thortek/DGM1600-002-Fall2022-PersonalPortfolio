@@ -10,6 +10,7 @@ html {
 
 body {
     font-family: 'Roboto', sans-serif;
+    font-size: x-large;
 }
 
 #navbar {
@@ -63,11 +64,10 @@ figure {
     display: flex;
     flex-direction: column;
     margin: 0;
-    max-width: 200px;
 }
 
 figure img {
-    max-width: 200px;
+    /* max-width: 200px; */
 }
 
 figcaption {
