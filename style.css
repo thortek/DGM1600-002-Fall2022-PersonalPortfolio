@@ -91,8 +91,30 @@ figcaption {
     margin-top: 4rem;
 }
 
+.contact-link {
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    color: #fefefe;
+    transition: transform 0.3s ease-out;
+}
+
+.contact-link:hover {
+    transform: translateY(8px);
+}
+
 footer {
     text-align: center;
     padding: 1rem;
     background-color: #F5E9CF;
 }
+
+@media (max-width: 640px) {
+    html {
+      font-size: 60%;
+    }
+    #welcome-section {
+        background-color: rgb(70, 86, 70);
+        color: #fff;
+    }
+  }
