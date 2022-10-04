@@ -49,15 +49,16 @@ body {
 }
 
 #projects {
-    height: 40vh;
     background-color: #D0B792;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .project-tile {
     text-decoration: none;
+    margin: 2rem;
 }
 
 figure {
