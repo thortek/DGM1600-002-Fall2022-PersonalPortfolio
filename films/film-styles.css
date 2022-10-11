@@ -10,3 +10,13 @@ html {
 body {
     background-color: bisque;
 }
+
+p {
+    background-color: rgb(56, 55, 55);
+    color: white;
+    font-size: x-large;
+    margin: 2rem;
+    padding: 2rem;
+    width: 20rem;
+    text-align: center;
+}
