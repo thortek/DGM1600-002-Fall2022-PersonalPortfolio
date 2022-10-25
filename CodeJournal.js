@@ -65,3 +65,13 @@ const anotherObject = { // objects can contain just about anything
     },
     awesomeness: true
 }
+
+// Functions
+
+function myFunction() {  // this is a named function definition
+    return "My greeting to you... is what I return to you!"
+}
+
+function sumTwoThings(thingOne, thingTwo) {
+    return thingOne + thingTwo
+}
