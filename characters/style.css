@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+figure {
+    margin: .5rem;
+}
+
+figure img {
+    max-height: 18rem;
+}
+
+button {
+    width: 10rem;
+    height: 3rem;
+    margin: 1rem;
+    background-color: darkblue;
+    color: aliceblue;
+    font-size: large;
+}
