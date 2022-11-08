@@ -1,4 +1,5 @@
 import { people } from '../data/people.js'
+import { removeChildren, getLastNumber } from '../utils/index.js'
 
 const header = document.querySelector('header')
 const main = document.querySelector('main')
@@ -31,9 +32,7 @@ header.appendChild(femaleCharsButton)
 header.appendChild(otherCharsButton)
 
 function populateDOM(arrayOfCharacters) {
-    while (main.firstChild) { // light saber activates... until all children removed
-        main.removeChild(main.firstChild);
-      }
+    removeChildren(main)
     arrayOfCharacters.forEach(person => {
         let figure = document.createElement('figure')
         let figImage = document.createElement('img')
@@ -52,14 +51,6 @@ function populateDOM(arrayOfCharacters) {
 
 // 'https://swapi.co/api/people/8/'
 
-function getLastNumber(url) {
-    // return the second to last character from the url property of the film object
-    let end = url.lastIndexOf('/')
-    let start = end - 2
-    if (url.charAt(start) === '/') {
-        start++
-    }
-    return url.slice(start, end)
-}
+
   
 populateDOM(people)
