@@ -19,10 +19,10 @@ ul {
 }
 
 li {
-    margin: .5rem;
+    margin: .10rem;
 }
 
 a {
     text-decoration: none;
-    font-size: x-large;
+    font-size: large;
 }
