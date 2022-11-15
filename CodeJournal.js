@@ -142,3 +142,30 @@ const pilotNames = pilots.map(pilot => pilot.name)
 // condition ? exprIfTrue : exprIfFalse
 
 const middleName = member.middle_name ? ` ${member.middle_name} ` : ` `
+
+// Reduce example
+
+const swpilots = [
+    {
+      id: 10,
+      name: "Poe Dameron",
+      years: 14
+    },
+    {
+      id: 2,
+      name: "Temmin 'Snap' Wexley",
+      years: 30
+    },
+    {
+      id: 41,
+      name: "Tallissan Lintra",
+      years: 16
+    },
+    {
+      id: 99,
+      name: "Ello Asty",
+      years: 22
+    },
+]
+  
+const totalYears  = swpilots.reduce((acc, pilot) => acc + pilot.years, 0)
