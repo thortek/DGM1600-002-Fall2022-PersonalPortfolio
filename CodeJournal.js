@@ -168,4 +168,9 @@ const swpilots = [
     },
 ]
   
-const totalYears  = swpilots.reduce((acc, pilot) => acc + pilot.years, 0)
+const totalYears = swpilots.reduce((acc, pilot) => acc + pilot.years, 0)
+
+const mostExpPilot = swpilots.reduce((oldest, pilot) => {
+  return oldest.years > pilot.years ? oldest: pilot
+})
+

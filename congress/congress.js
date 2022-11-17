@@ -6,23 +6,32 @@ const allCongressMembers = [...senators, ...representatives]
 
 const allSimpleMembers = simplifiedMembers(allCongressMembers)
 
-
 const membersDiv = document.querySelector('.membersDiv')
-const repsButton = document.querySelector('#repsButton')
-const senatorsButton = document.querySelector('#senatorsButton')
+const seniorMemberSpan = document.querySelector('#seniorMember')
+const vacationerSpan = document.querySelector('#vacationer')
+const loyaltyList = document.querySelector('#loyaltyList')
 
-const repubs = document.querySelector('#repubs')
-repubs.addEventListener('change', (event) => {
-    if (event.target.checked) {
-        const justRepublicans = allSimpleMembers.filter(member => member.party === 'R')
-        populateMembersDiv(justRepublicans)
-    }
+const mostSeniorMember = allSimpleMembers.reduce((acc, member) => {
+    return acc.seniority > member.seniority ? acc : member
 })
+
+const biggestVacationer = allSimpleMembers.reduce((acc, member) => acc.missedVotesPct > member.missedVotesPct ? acc : member)
+
+const mostLoyalMembers = allSimpleMembers.filter(member => member.loyaltyPct === 100)
+mostLoyalMembers.forEach(member => {
+    let listItem = document.createElement('li')
+    listItem.textContent = member.name
+    loyaltyList.appendChild(listItem)
+})
+
+seniorMemberSpan.textContent = mostSeniorMember.name
+vacationerSpan.textContent = biggestVacationer.name
+
+
 
 
 function configurator() {
-    const repubs = document.querySelector('[name="repubs"]')
-
+    // TBD
 }
 
 configurator()
@@ -36,7 +45,7 @@ function simplifiedMembers(memberArray) {
             gender: member.gender,
             party: member.party,
             imgURL: `https://www.govtrack.us/static/legislator-photos/${member.govtrack_id}-200px.jpeg`,
-            seniority: member.seniority,
+            seniority: +member.seniority,
             missedVotesPct: member.missed_votes_pct,
             loyaltyPct: member.votes_with_party_pct
         }
