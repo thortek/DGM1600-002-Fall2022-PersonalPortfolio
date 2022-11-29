@@ -41,6 +41,7 @@ function simplifiedMembers(memberArray) {
         let middleName = member.middle_name ? ` ${member.middle_name} ` : ` ` // Ternary FTW
         return {
             id: member.id,
+            birthDate: member.date_of_birth,
             name: `${member.first_name}${middleName}${member.last_name}`,
             gender: member.gender,
             party: member.party,
@@ -55,6 +56,18 @@ function simplifiedMembers(memberArray) {
 function populateMembersDiv(membersArray) {
     removeChildren(membersDiv)
     membersArray.forEach(member => {
+        const scene = document.createElement('div')
+        scene.className = 'scene'
+        const card = document.createElement('div')
+        card.className = 'card'
+        card.addEventListener('click', () => {
+            card.classList.toggle('is-flipped')
+        })
+
+
+        const cardFront = document.createElement('div')
+        cardFront.className = 'card__face card__face--front'
+
         const figure = document.createElement('figure')
         const figImg = document.createElement('img')
         const figCaption = document.createElement('figcaption')
@@ -66,6 +79,22 @@ function populateMembersDiv(membersArray) {
 
         figure.appendChild(figImg)
         figure.appendChild(figCaption)
-        membersDiv.appendChild(figure)
+        cardFront.appendChild(figure)
+        card.appendChild(cardFront)
+        card.appendChild(populateCardBack(member))
+        scene.appendChild(card)
+        membersDiv.appendChild(scene)
     })
 }
+
+function populateCardBack(member) {
+    const cardBack = document.createElement('div')
+    cardBack.className = 'card__face card__face--back'
+    const birthDate = document.createElement('h4')
+    birthDate.textContent = member.birthDate
+
+    cardBack.appendChild(birthDate)
+    return cardBack
+}
+
+populateMembersDiv(simplifiedMembers(allCongressMembers))
