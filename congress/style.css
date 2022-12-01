@@ -4,17 +4,42 @@
     box-sizing: border-box;
 }
 
+.filterArea {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  background-color: rgba(45, 178, 68, .2);
+}
+
+fieldset {
+  margin: 2rem 0;
+  padding: 1rem;
+}
+
 .membersDiv {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .scene {
     width: 200px;
     height: 270px;
-    border: 1px solid #CCC;
+    /* border: 1px solid #CCC; */
     margin: 1rem;
     perspective: 600px;
+  }
+
+  .democrat {
+   background-color: blue;
+  }
+
+  .republican {
+    background-color: red;
+  }
+
+  .independent {
+    background-color: yellow;
   }
   
   .card {
@@ -38,10 +63,24 @@
   }
   
   .card__face--front {
-    background: rgb(239, 192, 192);
+    /* background: rgb(239, 192, 192); */
   }
   
   .card__face--back {
     background: rgb(155, 155, 201);
     transform: rotateY(180deg);
+  }
+
+  figcaption {
+    text-align: center;
+  }
+
+  footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    background-color: rgba(45, 78, 168, .7);
+    color: #EEE;
+    padding: .5rem;
   }
