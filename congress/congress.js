@@ -11,6 +11,19 @@ const seniorMemberSpan = document.querySelector('#seniorMember')
 const vacationerSpan = document.querySelector('#vacationer')
 const loyaltyList = document.querySelector('#loyaltyList')
 
+const partyReset = document.querySelector('#partyReset')
+partyReset.addEventListener('click', () => {
+    const partyButtons = document.querySelectorAll('input[name="party"]')
+    partyButtons.forEach(button => button.checked = false)
+    configurator()
+})
+const genderReset = document.querySelector('#genderReset')
+genderReset.addEventListener('click', () => {
+    const genderButtons = document.querySelectorAll('input[name="gender"]')
+    genderButtons.forEach(button => button.checked = false)
+    configurator()
+})
+
 const mostSeniorMember = allSimpleMembers.reduce((acc, member) => {
     return acc.seniority > member.seniority ? acc : member
 })
@@ -49,7 +62,6 @@ function configurator() {
     if (checkedIds.includes('repubs')) configuredArray = [...configuredArray.filter(member => member.party === 'R')]
     if (checkedIds.includes('independents')) configuredArray = [...configuredArray.filter(member => member.party === 'ID')]
 
-    console.log(configuredArray)
     populateMembersDiv(configuredArray)
 }
 
@@ -67,7 +79,8 @@ function simplifiedMembers(memberArray) {
             imgURL: `https://www.govtrack.us/static/legislator-photos/${member.govtrack_id}-200px.jpeg`,
             seniority: +member.seniority,
             missedVotesPct: member.missed_votes_pct,
-            loyaltyPct: member.votes_with_party_pct
+            loyaltyPct: member.votes_with_party_pct,
+            state: member.state
         }
     })
 }
@@ -87,13 +100,17 @@ function populateMembersDiv(membersArray) {
         })
 
         const cardFront = document.createElement('div')
-        if (member.party === 'D') cardFront.className = 'card__face card__face--front democrat'
-        if (member.party === 'R') cardFront.className = 'card__face card__face--front republican'
-        if (member.party === 'ID') cardFront.className = 'card__face card__face--front independent'
+        if (member.party === 'D') cardFront.className = 'card__face card__face--front'
+        if (member.party === 'R') cardFront.className = 'card__face card__face--front'
+        if (member.party === 'ID') cardFront.className = 'card__face card__face--front'
 
         const figure = document.createElement('figure')
         const figImg = document.createElement('img')
         const figCaption = document.createElement('figcaption')
+
+        if (member.party === 'D') figCaption.className = 'democrat'
+        if (member.party === 'R') figCaption.className = 'republican'
+        if (member.party === 'ID') figCaption.className = 'independent'
 
         figImg.src = member.imgURL
         figImg.addEventListener('error', () => figImg.src = '../images/emperor-palpatine.jpeg')
@@ -114,9 +131,18 @@ function populateCardBack(member) {
     const cardBack = document.createElement('div')
     cardBack.className = 'card__face card__face--back'
     const birthDate = document.createElement('h4')
-    birthDate.textContent = member.birthDate
+    birthDate.className = 'birthDate'
+    birthDate.textContent = `Birth date: ${member.birthDate}`
+
+    const memberState = document.createElement('h3')
+    memberState.textContent = `State: ${member.state}`
+    const stateOutline = document.createElement('img')
+    stateOutline.className = 'svgOutline'
+    stateOutline.src = `../images/SVG/${member.state}.svg`
 
     cardBack.appendChild(birthDate)
+    cardBack.appendChild(memberState)
+    cardBack.appendChild(stateOutline)
     return cardBack
 }
 
