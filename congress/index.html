@@ -10,65 +10,70 @@
   <body>
     <header>
       <h1>Welcome to my Members of Congress page!</h1>
-      <div>
-        <h3>
-          The most senior member of Congress is <span id="seniorMember"></span>
-        </h3>
-        <h3>
-          The biggest vacationer of Congress is <span id="vacationer"></span>
-        </h3>
-        <h3>
-          The members voting with their party 100% of the time:
+      <div class="facts">
+        <div class="singleMemberDiv">
+          <h3>
+            Most senior member of Congress: <span id="seniorMember"></span>
+          </h3>
+          <img id="seniorMemberImg" />
+        </div>
+        <div class="singleMemberDiv">
+          <h3>Biggest vacationer of Congress: <span id="vacationer"></span></h3>
+          <img id="vacationerImg" />
+        </div>
+        <div class="singleMemberDiv">
+          <h3>The members voting with their party 100% of the time:</h3>
           <ul id="loyaltyList"></ul>
-        </h3>
+        </div>
       </div>
-      <section class="filterArea">
-        <fieldset>
-          <legend>Sort Congress Members:</legend>
-          <div>
-            <input type="checkbox" id="senate" name="senate" />
-            <label for="senate">Senators</label>
-          </div>
-          <div>
-            <input type="checkbox" id="reps" name="reps" />
-            <label for="reps">Representatives</label>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Filter by Party:</legend>
-          <div>
-            <input type="radio" id="repubs" name="party" />
-            <label for="repubs">Republicans</label>
-          </div>
-
-          <div>
-            <input type="radio" id="dems" name="party" />
-            <label for="demos">Democrats</label>
-          </div>
-
-          <div>
-            <input type="radio" id="independents" name="party" />
-            <label for="independents">Independents</label>
-          </div>
-          <button id="partyReset" class="resetButtons">Reset</button>
-        </fieldset>
-
-        <fieldset>
-          <legend>Filter by Gender:</legend>
-          <div>
-            <input type="radio" id="women" name="gender" />
-            <label for="women">Female</label>
-          </div>
-
-          <div>
-            <input type="radio" id="men" name="gender" />
-            <label for="men">Male</label>
-          </div>
-          <button id="genderReset" class="resetButtons">Reset</button>
-        </fieldset>
-      </section>
     </header>
+    <section class="filterArea">
+      <fieldset>
+        <legend>Sort Congress Members:</legend>
+        <div>
+          <input type="checkbox" id="senate" name="senate" checked/>
+          <label for="senate">Senators</label>
+        </div>
+        <div>
+          <input type="checkbox" id="reps" name="reps" checked/>
+          <label for="reps">Representatives</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Filter by Party:</legend>
+        <div>
+          <input type="radio" id="repubs" name="party" />
+          <label for="repubs">Republicans</label>
+        </div>
+
+        <div>
+          <input type="radio" id="dems" name="party" />
+          <label for="demos">Democrats</label>
+        </div>
+
+        <div>
+          <input type="radio" id="independents" name="party" />
+          <label for="independents">Independents</label>
+        </div>
+        <button id="partyReset" class="resetButtons">Reset</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>Filter by Gender:</legend>
+        <div>
+          <input type="radio" id="women" name="gender" />
+          <label for="women">Female</label>
+        </div>
+
+        <div>
+          <input type="radio" id="men" name="gender" />
+          <label for="men">Male</label>
+        </div>
+        <button id="genderReset" class="resetButtons">Reset</button>
+      </fieldset>
+    </section>
+
     <main>
       <div class="membersDiv"></div>
     </main>

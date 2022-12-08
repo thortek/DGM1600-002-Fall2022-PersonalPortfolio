@@ -38,7 +38,12 @@ mostLoyalMembers.forEach(member => {
 })
 
 seniorMemberSpan.textContent = mostSeniorMember.name
+const seniorMemberImg = document.querySelector('#seniorMemberImg')
+seniorMemberImg.src = mostSeniorMember.imgURL
+
 vacationerSpan.textContent = biggestVacationer.name
+const vacationerImg = document.querySelector('#vacationerImg')
+vacationerImg.src = biggestVacationer.imgURL
 
 /* Sorting and filtering configuration section */
 
@@ -80,7 +85,8 @@ function simplifiedMembers(memberArray) {
             seniority: +member.seniority,
             missedVotesPct: member.missed_votes_pct,
             loyaltyPct: member.votes_with_party_pct,
-            state: member.state
+            state: member.state,
+            rank: member.state_rank
         }
     })
 }
@@ -142,8 +148,13 @@ function populateCardBack(member) {
 
     cardBack.appendChild(birthDate)
     cardBack.appendChild(memberState)
+    if (member.rank) {
+        const memberRank = document.createElement('h3')
+        memberRank.textContent = `Rank: ${member.rank[0].toUpperCase()}${member.rank.slice(1)}`
+        cardBack.appendChild(memberRank)
+    }
     cardBack.appendChild(stateOutline)
     return cardBack
 }
 
-//populateMembersDiv(simplifiedMembers(allCongressMembers))
+populateMembersDiv(simplifiedMembers(allCongressMembers))

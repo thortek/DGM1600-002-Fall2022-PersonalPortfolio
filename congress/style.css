@@ -4,6 +4,30 @@
     box-sizing: border-box;
 }
 
+header {
+  text-align: center;
+}
+
+.facts {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.singleMemberDiv {
+  /* border: 1px #333 solid; */
+  margin: 1rem;
+  padding: 1rem;
+  text-align: center;
+
+}
+
+ul {
+  list-style-type: none;
+  font-weight: 800;
+  font-size: larger;
+  padding: 1rem;
+}
+
 .filterArea {
   display: flex;
   justify-content: space-evenly;
@@ -87,7 +111,7 @@ fieldset {
   }
 
   .svgOutline {
-    width: 190px;
+    width: 80px;
   }
  
   figure img {
